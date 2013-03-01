@@ -7,7 +7,7 @@ class Pagina < ActiveRecord::Base
     email_solicitante :email_address
     timestamps
   end
-  attr_accessible :url, :email_solicitante
+  attr_accessible :url, :email_solicitante, :video
   
   
   has_attached_file :video, 
