@@ -1,0 +1,6 @@
+<new-page>
+  <form:>
+    <field-list: skip="video" >
+    </field-list:>
+  </form:>
+</new-page>
