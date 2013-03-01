@@ -15,3 +15,11 @@
 <include src="taglibs/auto/rapid/forms"/>
 
 <include src="application"/>
+
+<include src='paperclip' plugin='hobo_paperclip'/>
+
+<extend tag="form" for="Pagina">
+  <old-form merge multipart>
+    <field-list: fields="url, email_solicitante, video"/>
+  </old-form>
+</extend>
