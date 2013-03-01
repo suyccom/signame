@@ -12,6 +12,7 @@ end
 module Signame
   class Application < Rails::Application
     config.i18n.default_locale = :es
+    I18n.default_locale = :es
     
     config.generators do |g|
       g.test_framework :rspec, :fixtures => false
