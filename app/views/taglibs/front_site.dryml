@@ -16,7 +16,7 @@
 
 <include src="application"/>
 
-<include src='paperclip' plugin='hobo_paperclip'/>
+<include gem='hobo_paperclip'/>
 
 <extend tag="form" for="Pagina">
   <old-form merge multipart>
