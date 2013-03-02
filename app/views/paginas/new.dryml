@@ -1,7 +1,16 @@
 <new-page>
-  <form:>
-    <field-list: skip="video"/>
-    <submit: label="Solicitar"/>
+  <content: class="hero-unit"/>
+  <content-header:>
+    <h1>Bienvenido a Sígname</h1>
+    <br/>
+    <p>En Sígname puedes solicitar que un intérprete signe una página de Internet. Por ejemplo, si necesitas acceder a una información en la web de la biblioteca municipal y no lo puedes entender bien, puedes solicitar que ese contenido sea signado a la lengua de signos.</p>
+  </content-header:>
+  <form: without-cancel>
+    <field-list: skip="video">
+      <url-label:>Dirección de la página</url-label:>
+      <email-solicitante-label:>Email</email-solicitante-label:>
+    </field-list:>
+    <submit: label="Solicitar" class="btn-large"/>
   </form:>
 </new-page>
 

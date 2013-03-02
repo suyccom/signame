@@ -1,0 +1,9 @@
+.hero-unit .form-horizontal .control-label {
+    width: 200px;
+}
+.hero-unit .control-group input {
+    width: 400px;
+}
+.hero-unit .form-horizontal .controls {
+    margin-left: 220px;
+}
