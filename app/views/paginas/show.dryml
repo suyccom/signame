@@ -1,4 +1,11 @@
 <show-page>
+  <heading:>
+    <% if @pagina.video_file_name %>
+      Sígname: Este es el vídeo      
+    <% else %>
+      Sígname: Página pendiente de signar
+    <% end %>
+  </heading:>
   <content-body:>
     <% if @pagina.video_file_name %>
       <video-player/>
@@ -10,13 +17,12 @@
 
 <def tag="video-player">
   <div class="hero-unit">
-    <video width="320" height="240" controls>
+    <video width="640" height="480" controls>
       <source src="#{this.video.url(:original)}" type="video/webm"/>
       Your browser does not support the video tag.
     </video> 
-    
-     <br/> <br/>
-    Este vídeo corresponde a: <a href="&this.url"><this.url/></a>.
+    <br/><br/>
+    Este vídeo es la versión en lengua de signos de: <a href="&this.url"><this.url/></a>.
   </div>
 </def>
 
