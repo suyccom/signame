@@ -3,8 +3,8 @@ class Pagina < ActiveRecord::Base
   hobo_model # Don't put anything above this
 
   fields do
-    url               :string
-    email_solicitante :email_address
+    url               :string, :required, :unique
+    email_solicitante :email_address, :required
     timestamps
   end
   attr_accessible :url, :email_solicitante, :video
