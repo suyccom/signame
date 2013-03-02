@@ -1,0 +1,28 @@
+$ ->
+  paginas_run_on_load()
+
+paginas_run_on_load = ->
+  # Start of file upload
+  $('#fileupload').fileupload({
+    dataType: 'script',
+    url: $('#fileupload-input').data('url') + '?render[0][id]=paginas&render[0][part_context]=' + $("[data-rapid-page-data]").data('rapid-page-data').hobo_parts['paginas'],
+    type: 'PUT', # PUT is the default for the Hobo update routes
+    fileInput: $('#fileupload-input')
+  });
+ 
+  $('#fileupload').bind('fileuploadstart', (e) ->
+    $('#upload-progress .bar').width('0%');
+    $('#upload-progress').fadeIn();
+  )
+ 
+  $('#fileupload').bind('fileuploadprogress', (e, data) ->
+    percentage = data.loaded * 100 / data.total
+    $('#upload-progress .bar').width(percentage+'%');
+  );
+ 
+  $('#fileupload').bind('fileuploaddone', (e, data) ->
+    $('#upload-progress .bar').width('100%');
+    $('#upload-progress').fadeOut();
+    $('.content-header').html('<h2>Sígname: Este es el vídeo</h2>');
+  )
+  # End of file upload

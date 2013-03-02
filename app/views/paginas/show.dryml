@@ -1,25 +1,32 @@
 <show-page>
   <content-header:>
-    <% unless @pagina.video_file_name %>
-      <a class="pull-right btn btn-success btn-large " action="edit">
-        <i class="icon-upload"></i>Intérprete: sube tu vídeo
+    <unless test="&@pagina.video_file_name">
+      <a class="pull-right btn btn-success btn-large" href="#"
+      onclick="$('input[type=file]').trigger('click');return false;">
+        <i class="icon-upload"></i> Intérprete: sube tu vídeo
       </a>
-    <% end %>
+      <attached-video-form/>
+    </unless>
     <h2>
-      <% if @pagina.video_file_name %>
+      <if test="&@pagina.video_file_name">
         Sígname: Este es el vídeo      
-      <% else %>
+      </if>
+      <else>
         Sígname: Página pendiente de signar
-      <% end %>
+      </else>
     </h2>
+
   </content-header:>
 
   <content-body:>
-    <% if @pagina.video_file_name %>
+  <div id="paginas" part="paginas">
+    <if test="&@pagina.video_file_name">
       <video-player/>
-    <% else %>
+    </if>
+    <else>
       <no-video/>
-    <% end %>
+    </else>
+  </div>
   </content-body:>
 </show-page>
 
@@ -37,14 +44,22 @@
 <def tag="no-video">
   <div class="form-horizontal">
     <div class="hero-unit" style="text-align:center;">
+    <div class="progress progress-striped active hide" id="upload-progress">
+      <div class="bar" style="width:0%"></div>
+    </div>
       Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/><br/>
       Te avisaremos por email en cuanto esté signada.
     </div>
   </div>
 </def>
 
-<def tag="boton-interpretar">
-
+<def tag="attached-video-form">
+  <form action="" class="pull-left" id="fileupload">
+    <span class="btn btn-mini fileinput-button" 
+      style="display:block;">
+      <input type="file" id="fileupload-input" 
+        name="pagina[video]" multiple="false"
+        data-url="&pagina_path(@pagina)"/>
+    </span>
+  </form>
 </def>
-
-
