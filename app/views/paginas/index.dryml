@@ -1,0 +1,13 @@
+<index-page:>
+
+  <collection: replace>
+    <table-plus with="&@paginas" 
+      fields="url, email_solicitante, created_at" filters="email">
+      <header: replace/>
+      <email-solicitante-view:><%= this %></email-solicitante-view:>
+      <created-at-view: style="background-color:#{this_parent.color_urgencia};">
+        <%= this.strftime('%d/%m/%Y') %>
+      </created-at-view:>
+    </table-plus>
+  </collection>
+</index-page:>

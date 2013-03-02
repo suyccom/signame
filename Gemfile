@@ -37,6 +37,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+# Development gems
+group :development do
+  gem "thin"
+end
+
 gem "hobo", "= 2.0.0"
 # Hobo has a lot of assets.   Stop cluttering the log in development mode.
 gem "quiet_assets", :group => :development

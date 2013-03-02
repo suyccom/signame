@@ -23,3 +23,5 @@ en:
 #    attribute_help:
 #      user:
 #        email_address: We will never share your address with third parties
+  paginas:
+    created_at: Asked for on

@@ -26,6 +26,17 @@ es:
         current_password: Contraseña Actual
         password_confirmation: Confirmación Contraseña
         email_address: Correo Electrónico
+      pagina:
+        email_solicitante: Solicitante
+        url: Página
+        created_at: Solicitado el
 #    attribute_help:
 #      user:
 #        email_address:
+  Pagina:
+    actions:
+      new: Nuevo trabajo
+  pagina:
+    index:
+      heading: Cola de trabajos
+      title: Cola de trabajos
