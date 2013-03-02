@@ -6,10 +6,15 @@ class PaginasController < ApplicationController
   auto_actions :all
 
   def new
-    @pagina = this
-    hobo_new do
-      if @pagina.url.blank? 
-        @pagina.url = request.referer
+    @pagina = Pagina.find(:first, :conditions => ['url = ?', request.referer])
+    if @pagina != nil 
+      redirect_to @pagina
+    else
+      @pagina = this
+      hobo_new do
+        if @pagina.url.blank? 
+          @pagina.url = request.referer
+        end
       end
     end
   end

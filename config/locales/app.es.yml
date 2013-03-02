@@ -9,7 +9,10 @@
 # please post it to http://hobousers.googlegroups.com. Thank you!
 
 es:
-
+  pagina:
+    messages:
+      create:
+        success: "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
   attributes:
     created_at: Creado el
     updated_at: Actualizado el
