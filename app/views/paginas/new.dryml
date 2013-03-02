@@ -9,11 +9,8 @@
   <form: without-cancel>
     <field-list: skip="video">
       <url-label:>Dirección de la página</url-label:>
-      <email-solicitante-label:>Email</email-solicitante-label:>
+      <email-solicitante-label:>Tu correo electrónico</email-solicitante-label:>
     </field-list:>
     <submit: label="Solicitar" class="btn-large"/>
   </form:>
 </new-page>
-
-
-
