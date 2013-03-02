@@ -15,6 +15,7 @@ class Pagina < ActiveRecord::Base
         :small => ["200x250", :jpg ], 
         :thumbnail => ["100x100#", :jpg ] 
       }, 
+      :whiny => false,
       :default_style => :small,
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"
