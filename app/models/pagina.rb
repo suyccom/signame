@@ -20,6 +20,13 @@ class Pagina < ActiveRecord::Base
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"
 
+  def color_urgencia
+    if self.video_file_size.nil?
+      return '#FBF821;'
+    else
+      return '#65CC50;'
+    end
+  end
 
   after_create :notificar_nueva_solicitud
   def notificar_nueva_solicitud

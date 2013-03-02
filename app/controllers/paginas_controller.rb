@@ -14,6 +14,11 @@ class PaginasController < ApplicationController
     end
   end
 
+  def index
+    hobo_index Pagina.apply_scopes(
+      :order_by => parse_sort_param(:url, :email_solicitante, :created_at))
+  end
+
   def show
     hobo_show do
       flash[:notice] = "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
