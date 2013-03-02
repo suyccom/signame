@@ -7,12 +7,7 @@
 # This file might be used for other Latin America Spanish Countries without any change
 # It might be ok also for Spain. If you find any error, or if you have any more specific translation,
 # please post it to http://hobousers.googlegroups.com. Thank you!
-
 es:
-  pagina:
-    messages:
-      create:
-        success: "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
   attributes:
     created_at: Creado el
     updated_at: Actualizado el
@@ -40,6 +35,9 @@ es:
     actions:
       new: Nuevo trabajo
   pagina:
+    messages:
+      create:
+        success: "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
     index:
       heading: Cola de trabajos
       title: Cola de trabajos
