@@ -1,6 +1,9 @@
 <new-page>
   <form:>
-    <field-list: skip="video" >
-    </field-list:>
+    <field-list: skip="video"/>
+    <submit: label="Solicitar"/>
   </form:>
 </new-page>
+
+
+
