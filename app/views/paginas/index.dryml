@@ -1,9 +1,9 @@
 <index-page:>
-
   <collection: replace>
     <table-plus with="&@paginas" 
       fields="url, email_solicitante, created_at" filters="email">
       <header: replace/>
+      <url-view:><a href='/paginas/#{this_parent.id}'><this/></a></url-view:>
       <email-solicitante-view:><%= this %></email-solicitante-view:>
       <created-at-view: style="background-color:#{this_parent.color_urgencia};">
         <%= this.strftime('%d/%m/%Y') %>
