@@ -31,6 +31,7 @@
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Inicio</nav-item>
     <nav-item with="&Pagina">Cola de trabajos</nav-item>
+    <nav-item href="/integracion">Intégralo en tu web</nav-item>
   </navigation>
 </def>
 
