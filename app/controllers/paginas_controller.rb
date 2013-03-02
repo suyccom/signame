@@ -15,8 +15,13 @@ class PaginasController < ApplicationController
   end
 
   def index
+    # Por defecto ordenamos por orden cronológico de creación.
+    if (!params[:sort])
+      params[:sort] = 'created_at'
+    end
     hobo_index Pagina.apply_scopes(
-      :order_by => parse_sort_param(:url, :email_solicitante, :created_at))
+      :order_by => parse_sort_param(:url, :email_solicitante, :created_at)
+    )
   end
 
   def show
