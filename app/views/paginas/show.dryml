@@ -1,11 +1,19 @@
 <show-page>
-  <heading:>
-    <% if @pagina.video_file_name %>
-      Sígname: Este es el vídeo      
-    <% else %>
-      Sígname: Página pendiente de signar
+  <content-header:>
+    <% unless @pagina.video_file_name %>
+      <a class="pull-right btn btn-success btn-large " action="edit">
+        <i class="icon-upload"></i>Intérprete: sube tu vídeo
+      </a>
     <% end %>
-  </heading:>
+    <h2>
+      <% if @pagina.video_file_name %>
+        Sígname: Este es el vídeo      
+      <% else %>
+        Sígname: Página pendiente de signar
+      <% end %>
+    </h2>
+  </content-header:>
+
   <content-body:>
     <% if @pagina.video_file_name %>
       <video-player/>
@@ -33,6 +41,10 @@
       Te avisaremos en cuanto esté signada.
     </div>
   </div>
+</def>
+
+<def tag="boton-interpretar">
+
 </def>
 
 

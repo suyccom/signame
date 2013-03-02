@@ -29,10 +29,11 @@ class PaginasController < ApplicationController
     )
   end
 
-  def show
-    hobo_show do
-      flash[:notice] = "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
+  def edit
+    hobo_edit do
+      unless @pagina.video_file_size.nil?
+        PaginaMailer.terminado(@pagina).deliver
+      end
     end
   end
-
 end
