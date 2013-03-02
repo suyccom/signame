@@ -57,3 +57,16 @@ gem 'hobo_paperclip', :git => "git://github.com/Hobo/hobo_paperclip.git", :branc
 
 
 gem 'bootswatch-rails'
+
+
+
+# Testing gems
+group :test do
+  gem "rspec-rails", ">= 2.5.0"
+  gem "spork", ">= 1.0.0rc3"
+  gem "autotest"
+  gem "autotest-growl"
+  gem "capybara"
+  gem "headless"
+  gem "timecop"
+end
