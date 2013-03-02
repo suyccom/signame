@@ -9,15 +9,23 @@
 </show-page>
 
 <def tag="video-player">
-  <video width="320" height="240" controls>
-    <source src="#{this.video.url(:original)}" type="video/webm"/>
-    Your browser does not support the video tag.
-  </video> 
+  <div class="hero-unit">
+    <video width="320" height="240" controls>
+      <source src="#{this.video.url(:original)}" type="video/webm"/>
+      Your browser does not support the video tag.
+    </video> 
+    
+     <br/> <br/>
+    Este vídeo corresponde a: <a href="&this.url"><this.url/></a>.
+  </div>
 </def>
 
 <def tag="no-video">
   <div class="form-horizontal">
-    <field-list fields="url, email-solicitante"/>
+    <div class="hero-unit">
+      Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/>
+      Te avisaremos en cuanto esté signada.
+    </div>
   </div>
 </def>
 
