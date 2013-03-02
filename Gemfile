@@ -54,3 +54,6 @@ gem "hobo_bootstrap_ui", "2.0.0"
 gem "jquery-ui-themes", "~> 0.0.4"
 gem "paperclip"
 gem 'hobo_paperclip', :git => "git://github.com/Hobo/hobo_paperclip.git", :branch => "master"
+
+
+gem 'bootswatch-rails'

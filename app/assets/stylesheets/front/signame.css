@@ -7,3 +7,13 @@
 .hero-unit .form-horizontal .controls {
     margin-left: 220px;
 }
+
+
+
+/* Pruebas con tema United de Bootswatch */
+.alert, .alert h4 {
+    color: white;
+}
+.hero-unit {
+  background-color: whitesmoke;
+}
