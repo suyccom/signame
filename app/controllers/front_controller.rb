@@ -9,6 +9,16 @@ class FrontController < ApplicationController
       redirect_to user_login_path
     end
   end
+  
+  def semaforo
+    pagina = Pagina.find_by_url(request.referer)
+    if pagina && pagina.video_file_size
+      color = 'verde'
+    else
+      color = 'amarillo'
+    end
+    send_file "app/assets/images/#{color}.png", :disposition => 'inline', :type => "image/png"
+  end
 
   def search
     if params[:query]
