@@ -24,7 +24,7 @@
 </show-page>
 
 <def tag="video-player">
-  <div class="hero-unit">
+  <div class="hero-unit" style="text-align:center;">
     <video width="640" height="480" controls>
       <source src="#{this.video.url(:original)}" type="video/webm"/>
       Your browser does not support the video tag.
@@ -36,9 +36,9 @@
 
 <def tag="no-video">
   <div class="form-horizontal">
-    <div class="hero-unit">
-      Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/>
-      Te avisaremos en cuanto esté signada.
+    <div class="hero-unit" style="text-align:center;">
+      Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/><br/>
+      Te avisaremos por email en cuanto esté signada.
     </div>
   </div>
 </def>
