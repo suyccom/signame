@@ -10,7 +10,10 @@
 .form-horizontal .form-actions, .form-horizontal .actions {
   padding-left: 220px;
 }
-
+input#pagina_url, input#pagina_email_solicitante {
+  font-size: 1em;
+  padding: 0.3em;
+}
 
 
 /* Pruebas con tema United de Bootswatch */
