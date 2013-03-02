@@ -19,6 +19,12 @@ class Pagina < ActiveRecord::Base
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"
 
+
+  after_create :notificar_nueva_solicitud
+  def notificar_nueva_solicitud
+    PaginaMailer.solicitud(self).deliver
+  end
+
   # --- Permissions --- #
 
   def create_permitted?
