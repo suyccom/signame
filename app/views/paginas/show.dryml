@@ -1,4 +1,13 @@
 <show-page>
+  <content-header:>
+
+    <% unless @pagina.video_file_name %>
+      <a class="pull-right btn btn-success btn-large " action="edit">
+        <i class="icon-upload"></i>Intérprete: sube tu vídeo
+      </a>
+    <% end %>
+    <h2>PATATA</h2>
+  </content-header:>
   <content-body:>
     <% if @pagina.video_file_name %>
       <video-player/>
@@ -19,6 +28,10 @@
   <div class="form-horizontal">
     <field-list fields="url, email-solicitante"/>
   </div>
+</def>
+
+<def tag="boton-interpretar">
+
 </def>
 
 
