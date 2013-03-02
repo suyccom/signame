@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PaginasController < ApplicationController
 
   hobo_model_controller
@@ -16,6 +17,13 @@ class PaginasController < ApplicationController
   def index
     hobo_index Pagina.apply_scopes(
       :order_by => parse_sort_param(:url, :email_solicitante, :created_at))
+    end
+  end
+
+  def show
+    hobo_show do
+      flash[:notice] = "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
+    end
   end
 
 end

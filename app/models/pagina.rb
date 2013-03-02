@@ -3,8 +3,8 @@ class Pagina < ActiveRecord::Base
   hobo_model # Don't put anything above this
 
   fields do
-    url               :string
-    email_solicitante :email_address
+    url               :string, :required, :unique
+    email_solicitante :email_address, :required
     timestamps
   end
   attr_accessible :url, :email_solicitante, :video
@@ -15,6 +15,7 @@ class Pagina < ActiveRecord::Base
         :small => ["200x250", :jpg ], 
         :thumbnail => ["100x100#", :jpg ] 
       }, 
+      :whiny => false,
       :default_style => :small,
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"

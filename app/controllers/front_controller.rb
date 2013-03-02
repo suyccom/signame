@@ -25,5 +25,7 @@ class FrontController < ApplicationController
       site_search(params[:query])
     end
   end
+  
+  def integracion; end
 
 end

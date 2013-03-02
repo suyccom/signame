@@ -18,8 +18,24 @@
 
 <include gem='hobo_paperclip'/>
 
+
+<def tag="app-name">Sígname</def>
+
 <extend tag="form" for="Pagina">
   <old-form merge multipart>
     <field-list: fields="url, email_solicitante, video"/>
   </old-form>
+</extend>
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Inicio</nav-item>
+    <nav-item with="&Pagina">Cola de trabajos</nav-item>
+    <nav-item href="/integracion">Intégralo en tu web</nav-item>
+  </navigation>
+</def>
+
+
+<extend tag="page">
+  <old-page merge without-account-nav/>
 </extend>
