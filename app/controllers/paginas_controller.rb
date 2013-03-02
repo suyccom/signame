@@ -29,8 +29,8 @@ class PaginasController < ApplicationController
     )
   end
 
-  def edit
-    hobo_edit do
+  def update
+    hobo_update do
       unless @pagina.video_file_size.nil?
         PaginaMailer.terminado(@pagina).deliver
       end
