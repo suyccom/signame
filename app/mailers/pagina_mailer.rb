@@ -10,9 +10,9 @@ class PaginaMailer < ActionMailer::Base
   #
   def solicitud(pagina)
     @pagina = pagina
-
+    destinatario = Rails.env.production? ? pagina.email_solicitante : 'tecnicos@unoycero.com'
     mail(
-      :to => pagina.email_solicitante, 
+      :to => destinatario, 
       :subject => "Confirmación de solicitud de signado de página web",
       :bcc => 'tecnicos@unoycero.com'
       )
