@@ -14,6 +14,9 @@ Signame::Application.routes.draw do
   match 'semaforo' => 'front#semaforo'
   
   match 'integracion' => 'front#integracion'
+  
+  match 'cola_trabajos' => 'paginas#index'
+  match 'paginas_signadas' => 'paginas#index', :paginas_signadas => true
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
