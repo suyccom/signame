@@ -24,7 +24,11 @@ class PaginasController < ApplicationController
     if (!params[:sort])
       params[:sort] = 'created_at'
     end
-    hobo_index Pagina.apply_scopes(
+    paginas = Pagina.pendiente
+    paginas = Pagina.signada if params[:paginas_signadas] == true
+    @title = "Cola de trabajos"
+    @title = "Páginas signadas" if params[:paginas_signadas] == true
+    hobo_index paginas.apply_scopes(
       :order_by => parse_sort_param(:url, :email_solicitante, :created_at)
     )
   end

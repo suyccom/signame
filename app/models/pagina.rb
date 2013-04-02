@@ -20,18 +20,22 @@ class Pagina < ActiveRecord::Base
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"
 
+
+  def signada?
+    self.video_file_size.nil? ? false : true
+  end
+  
   def color_urgencia
-    if self.video_file_size.nil?
-      return '#FBF821;'
-    else
-      return '#65CC50;'
-    end
+    signada? ? '#65CC50;' : '#FBF821;'
   end
 
   after_create :notificar_nueva_solicitud
   def notificar_nueva_solicitud
     PaginaMailer.solicitud(self).deliver
   end
+  
+  scope :signada,   lambda { where("video_file_size IS NOT ?", nil)}
+  scope :pendiente, lambda { where("video_file_size IS ?", nil)}
 
   # --- Permissions --- #
 
