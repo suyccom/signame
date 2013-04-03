@@ -19,7 +19,7 @@ feature 'Una persona sorda accede a una web y ' do
     page.should have_content "En Sígname puedes solicitar que un intérprete signe una página de Internet"
     # Rellena el formulario y pulsa solicitar
     fill_in 'pagina[url]', :with => 'http://www.google.com'
-    fill_in 'pagina[email_solicitante]', :with => 'http://tecnicos@unoycero.com'
+    fill_in 'pagina[email_solicitante]', :with => 'tecnicos@unoycero.com'
     click_on 'Solicitar'
     # Ve el mensaje "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
     page.should have_content "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
