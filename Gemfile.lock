@@ -48,6 +48,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.16)
+    awesome_print (1.1.0)
     bootstrap-datepicker-rails (1.0.0)
       railties (>= 3.0)
     bootstrap-sass (2.3.0.1)
@@ -223,6 +224,7 @@ PLATFORMS
 DEPENDENCIES
   autotest
   autotest-growl
+  awesome_print
   bootswatch-rails
   capybara
   coffee-rails (~> 3.2.1)

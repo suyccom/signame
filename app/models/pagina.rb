@@ -8,8 +8,7 @@ class Pagina < ActiveRecord::Base
     timestamps
   end
   attr_accessible :url, :email_solicitante, :video
-  
-  
+
   has_attached_file :video, 
       :styles => { 
         :small => ["200x250", :jpg ], 

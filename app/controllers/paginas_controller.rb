@@ -20,13 +20,18 @@ class PaginasController < ApplicationController
   end
 
   def index
-    # Por defecto ordenamos por orden cronológico de creación.
-    if (!params[:sort])
-      params[:sort] = 'created_at'
+    # Mostrar solo si el usuario ha hecho login.
+    if current_user.signed_up?
+      # Por defecto ordenamos por orden cronológico de creación.
+      if (!params[:sort])
+        params[:sort] = 'created_at'
+      end
+      hobo_index Pagina.apply_scopes(
+        :order_by => parse_sort_param(:url, :email_solicitante, :created_at)
+      )
+    else
+      redirect_to user_login_path
     end
-    hobo_index Pagina.apply_scopes(
-      :order_by => parse_sort_param(:url, :email_solicitante, :created_at)
-    )
   end
 
   def update

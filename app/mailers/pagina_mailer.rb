@@ -10,7 +10,7 @@ class PaginaMailer < ActionMailer::Base
   #
   def solicitud(pagina)
     @pagina = pagina
-    destinatario = Rails.env.production? ? pagina.email_solicitante : 'tecnicos@unoycero.com'
+    destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
     mail(
       :to => destinatario, 
       :subject => "[signame] Confirmación de solicitud de signado de página web",
@@ -20,7 +20,7 @@ class PaginaMailer < ActionMailer::Base
 
   def terminado(pagina)
     @pagina = pagina
-    destinatario = Rails.env.production? ? pagina.email_solicitante : 'tecnicos@unoycero.com'
+    destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
     mail(
       :to => destinatario, 
       :subject => "[signame] Página web adaptada",

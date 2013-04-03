@@ -32,6 +32,9 @@
     <nav-item href="#{base_url}/">Inicio</nav-item>
     <nav-item with="&Pagina">Cola de trabajos</nav-item>
     <nav-item href="/integracion">Intégralo en tu web</nav-item>
+    <if test='&current_user.signed_up?'>
+      <nav-item href="/logout">Salir</nav-item>
+    </if>
   </navigation>
 </def>
 

@@ -40,6 +40,7 @@ gem 'jquery-rails'
 # Development gems
 group :development do
   gem "thin"
+  gem "awesome_print"
 end
 
 gem "hobo", "= 2.0.0"
