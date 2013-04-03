@@ -32,6 +32,7 @@ class Pagina < ActiveRecord::Base
   after_create :notificar_nueva_solicitud
   def notificar_nueva_solicitud
     PaginaMailer.solicitud(self).deliver
+    PaginaMailer.notificar_ils(self).deliver
   end
   
   scope :signada,   lambda { where("video_file_size IS NOT ?", nil)}
