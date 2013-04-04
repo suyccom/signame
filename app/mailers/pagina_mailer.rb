@@ -30,7 +30,7 @@ class PaginaMailer < ActionMailer::Base
 
   def notificar_ils(pagina)
     @pagina = pagina
-    destinatario = Rails.env.production? ? ILS_MAIL : DEVEL_EMAIL
+    destinatario = Rails.env.production? ? ILS_EMAIL : DEVEL_EMAIL
     mail(
       :to => destinatario, 
       :subject => "[signame] Nuevo trabajo",
