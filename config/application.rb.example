@@ -86,3 +86,8 @@ module Signame
     }
   end
 end
+
+# Constantes configuración Signame.
+DEVEL_EMAIL = 'desarrollo@midominio.com'
+ILS_EMAIL = 'notificar@nuevaurlparasignar.com'
+DOMAIN_URL = 'http://midominio.com'

@@ -12,19 +12,29 @@ class PaginaMailer < ActionMailer::Base
     @pagina = pagina
     destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
     mail(
-      :to => destinatario, 
+      :to => destinatario,
       :subject => "[signame] Confirmación de solicitud de signado de página web",
       :bcc => 'tecnicos@unoycero.com'
-      )
+    )
   end
 
   def terminado(pagina)
     @pagina = pagina
     destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
     mail(
-      :to => destinatario, 
+      :to => destinatario,
       :subject => "[signame] Página web adaptada",
       :bcc => 'tecnicos@unoycero.com'
-      )
+    )
+  end
+
+  def notificar_ils(pagina)
+    @pagina = pagina
+    destinatario = Rails.env.production? ? ILS_EMAIL : DEVEL_EMAIL
+    mail(
+      :to => destinatario, 
+      :subject => "[signame] Nuevo trabajo",
+      :bcc => 'tecnicos@unoycero.com'
+    )
   end
 end
