@@ -128,10 +128,10 @@ es:
         must_activate: "Tiene que activar la cuenta antes de iniciar la sesión. Por favor verifique su correo eléctronico."
       login:
         success: "Ha iniciado la sesión."
-        error: "No has introducido un %{login.downcase} y/o una contraseña válidos"
+        error: "No has introducido un correo electrónico y/o una contraseña válidos"
       logout: "La sesión ha terminado."
       reset_password: "Tu contraseña ha sido reiniciada."
-      permission_denied: "¡Permiso denegado!"
+      permission_denied: "Permiso denegado"
       not_found: "La página solicitada no se encuentra."
       unauthenticated: "No se pudo autenticar."
       validate_password: "debe contener al menos 6 caracteres, letras mayúsculas y minúsculas"
