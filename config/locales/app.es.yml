@@ -21,9 +21,9 @@ es:
       user:
         name: Nombre
         password: Contraseña
-        current_password: Contraseña Actual
-        password_confirmation: Confirmación Contraseña
-        email_address: Correo Electrónico
+        current_password: Contraseña actual
+        password_confirmation: Confirmación contraseña
+        email_address: Correo electrónico
       pagina:
         email_solicitante: Solicitante
         url: Página

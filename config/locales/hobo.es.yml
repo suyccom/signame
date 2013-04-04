@@ -64,8 +64,6 @@ es:
       title: *forgot_password
       heading: *forgot_password
       text: "Introduzca la dirección de correo electrónico mediante la cual se registró. Le enviaremos un correo con instrucciones para generar una nueva contraseña."
-             
-             
       email_address: *email_address
       send: "Enviar nueva contraseña"
 
@@ -130,7 +128,7 @@ es:
         must_activate: "Tiene que activar la cuenta antes de iniciar la sesión. Por favor verifique su correo eléctronico."
       login:
         success: "Ha iniciado la sesión."
-        error: "¡No se ingresaron %{login} y Contraseña válidos!"
+        error: "No has introducido un %{login.downcase} y/o una contraseña válidos"
       logout: "La sesión ha terminado."
       reset_password: "Tu contraseña ha sido reiniciada."
       permission_denied: "¡Permiso denegado!"
