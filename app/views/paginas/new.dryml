@@ -1,4 +1,4 @@
-<new-page>
+<new-page title="Inicio">
   <content: class="hero-unit"/>
   <content-header:>
     <img src="/assets/logo-audicion.png" class="pull-right"/>

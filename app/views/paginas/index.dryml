@@ -1,4 +1,6 @@
-<index-page:>
+<index-page: title="&@title">
+  <new-link: replace/>
+  <heading:><%= @title %></heading:>
   <collection: replace>
     <table-plus with="&@paginas" 
       fields="url, email_solicitante, created_at" filters="email">
