@@ -23,7 +23,7 @@
 
 <extend tag="form" for="Pagina">
   <old-form merge multipart>
-    <field-list: fields="url, email_solicitante, video"/>
+    <field-list: fields="url, video"/>
   </old-form>
 </extend>
 

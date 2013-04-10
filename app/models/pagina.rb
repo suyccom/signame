@@ -4,10 +4,10 @@ class Pagina < ActiveRecord::Base
 
   fields do
     url               :string, :required, :unique
-    email_solicitante :email_address, :required
     timestamps
   end
-  attr_accessible :url, :email_solicitante, :video
+
+  has_many :solicituds, :accessible => true
 
   has_attached_file :video, 
       :styles => { 
@@ -28,9 +28,8 @@ class Pagina < ActiveRecord::Base
     signada? ? '#65CC50;' : '#FBF821;'
   end
 
-  after_create :notificar_nueva_solicitud
-  def notificar_nueva_solicitud
-    PaginaMailer.solicitud(self).deliver
+  after_create :notificar_ils
+  def notificar_ils
     PaginaMailer.notificar_ils(self).deliver
   end
   
