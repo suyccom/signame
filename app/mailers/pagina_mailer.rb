@@ -15,7 +15,7 @@ class PaginaMailer < ActionMailer::Base
     mail(
       :to => destinatario,
       :subject => "[signame] Confirmación de solicitud de signado de página web",
-#      :bcc => 'tecnicos@unoycero.com'
+      :bcc => 'tecnicos@unoycero.com'
     )
   end
   def notificar_ils(pagina)
@@ -24,7 +24,7 @@ class PaginaMailer < ActionMailer::Base
     mail(
       :to => destinatario, 
       :subject => "[signame] Nuevo trabajo",
-#      :bcc => 'tecnicos@unoycero.com'
+      :bcc => 'tecnicos@unoycero.com'
     )
   end
   def terminado(pagina)
@@ -38,7 +38,7 @@ class PaginaMailer < ActionMailer::Base
     mail(
       :to => destinatario,
       :subject => "[signame] Página web adaptada",
-#      :bcc => 'tecnicos@unoycero.com'
+      :bcc => 'tecnicos@unoycero.com'
     )
   end
 end
