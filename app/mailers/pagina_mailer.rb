@@ -8,33 +8,37 @@ class PaginaMailer < ActionMailer::Base
   #
   #   en.pagina_mailer.solicitud.subject
   #
-  def solicitud(pagina)
+  def notificar_solicitud(pagina)
     @pagina = pagina
-    destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
+    ultimo_email = @pagina.solicituds.last.email_solicitante
+    destinatario = Rails.env.production? ? ultimo_email : DEVEL_EMAIL
     mail(
       :to => destinatario,
       :subject => "[signame] Confirmación de solicitud de signado de página web",
-      :bcc => 'tecnicos@unoycero.com'
+      :bcc => 'tecnicos@unoycero.com' #Solo se envia si no se repite en :to
     )
   end
-
-  def terminado(pagina)
-    @pagina = pagina
-    destinatario = Rails.env.production? ? pagina.email_solicitante : DEVEL_EMAIL
-    mail(
-      :to => destinatario,
-      :subject => "[signame] Página web adaptada",
-      :bcc => 'tecnicos@unoycero.com'
-    )
-  end
-
   def notificar_ils(pagina)
     @pagina = pagina
     destinatario = Rails.env.production? ? ILS_EMAIL : DEVEL_EMAIL
     mail(
       :to => destinatario, 
       :subject => "[signame] Nuevo trabajo",
-      :bcc => 'tecnicos@unoycero.com'
+      :bcc => 'tecnicos@unoycero.com' #Solo se envia si no se repite en :to
+    )
+  end
+  def terminado(pagina)
+    @pagina = pagina
+    emails = []
+    solicitudes = @pagina.solicituds
+    for s in solicitudes
+      emails << s.email_solicitante.to_s
+    end    
+    destinatario = Rails.env.production? ? emails : DEVEL_EMAIL
+    mail(
+      :to => 'no-reply@no-reply.com',
+      :subject => "[signame] Página web adaptada",
+      :bcc => destinatario #Solo se envia si no se repite en :to
     )
   end
 end
