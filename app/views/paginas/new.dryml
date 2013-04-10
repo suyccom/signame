@@ -12,7 +12,7 @@
     </field-list:>
     <after-field-list:>
       <div class="control-group">
-        <label class="control-label">Email</label>
+        <label class="control-label">Correo electrónico</label>
         <div class="controls">
           <input: type="text" id="email_solicitante" name="email_solicitante"/>
         </div>
