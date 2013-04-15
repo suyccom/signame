@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20130409062325) do
 
   create_table "paginas", :force => true do |t|
     t.string   "url"
-    t.string   "email_solicitante"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "video_webm_file_name"
@@ -27,6 +26,15 @@ ActiveRecord::Schema.define(:version => 20130409062325) do
     t.integer  "video_mp4_file_size"
     t.datetime "video_mp4_updated_at"
   end
+
+  create_table "solicituds", :force => true do |t|
+    t.string   "email_solicitante"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "pagina_id"
+  end
+
+  add_index "solicituds", ["pagina_id"], :name => "index_solicituds_on_pagina_id"
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40

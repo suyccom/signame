@@ -57,10 +57,19 @@
       <div class="bar" style="width:0%"></div>
     </div>
       Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/><br/>
-      Te avisaremos por email en cuanto esté signada.
+      Escribe tu email y te avisaremos cuando este signada.<br/><br/>
+      <form  action="/solicituds/">
+        <div>
+          <input type="text" id="email_solicitante" name="email_solicitante" class="span2"/>
+          <input type="hidden" id="pagina_id" name="pagina_id" value="#{@pagina.id}" style="margin-left:5px;"/><submit label="Notificar" class="btn"/>
+        </div>
+      </form>
     </div>
   </div>
 </def>
+
+
+
 
 <def tag="attached-video-form">
   <form action="" class="pull-left" id="fileupload">
