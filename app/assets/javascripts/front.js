@@ -13,4 +13,6 @@
 //= require hobo_bootstrap
 //= require hobo_jquery_ui
 //= require hobo_bootstrap_ui
+//= require mediaelement_rails
 //= require_tree ./front
+

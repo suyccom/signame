@@ -12,7 +12,7 @@ class FrontController < ApplicationController
   
   def semaforo
     pagina = Pagina.find_by_url(request.referer)
-    if pagina && pagina.video_file_size
+    if pagina && pagina.signada?
       color = 'verde'
     else
       color = 'amarillo'
