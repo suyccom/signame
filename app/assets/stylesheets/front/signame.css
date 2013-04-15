@@ -23,3 +23,9 @@ input#pagina_url, input#pagina_email_solicitante {
 .hero-unit {
   background-color: whitesmoke;
 }
+
+
+/* Centrar el vídeo mediaelementjs */
+#mep_0{
+  margin-left:20%;
+}

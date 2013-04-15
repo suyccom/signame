@@ -40,7 +40,8 @@ class PaginasController < ApplicationController
 
   def update
     hobo_update do
-      unless @pagina.video_file_size.nil?
+      if @pagina.signada?
+        @pagina.convertir_webm_a_mp4
         PaginaMailer.terminado(@pagina).deliver
       end
     end
