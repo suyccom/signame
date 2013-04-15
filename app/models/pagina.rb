@@ -6,12 +6,20 @@ class Pagina < ActiveRecord::Base
     url               :string, :required, :unique
     timestamps
   end
-
   has_many :solicituds, :accessible => true
 
-  has_attached_file :video, 
+  has_attached_file :video_webm, 
       :styles => { 
         :small => ["200x250", :jpg ], 
+        :thumbnail => ["100x100#", :jpg ] 
+      }, 
+      :whiny => false,
+      :default_style => :small,
+      :path => "#{Rails.root}/public/videos/:style/:id.:extension",
+      :url => "/videos/:style/:id.:extension"
+  has_attached_file :video_mp4, 
+      :styles => { 
+        :small => ["640x480", :jpg ], 
         :thumbnail => ["100x100#", :jpg ] 
       }, 
       :whiny => false,
@@ -21,7 +29,7 @@ class Pagina < ActiveRecord::Base
 
 
   def signada?
-    self.video_file_size.nil? ? false : true
+    self.video_webm_file_size.nil? ? false : true
   end
   
   def color_urgencia
@@ -33,8 +41,14 @@ class Pagina < ActiveRecord::Base
     PaginaMailer.notificar_ils(self).deliver
   end
   
-  scope :signada,   lambda { where("video_file_size IS NOT ?", nil)}
-  scope :pendiente, lambda { where("video_file_size IS ?", nil)}
+  def convertir_webm_a_mp4
+    system("HandBrakeCLI -Z Universal -i '#{self.video_webm.path(:original)}' -o temp.mp4")
+    self.update_attribute(:video_mp4, File.open("temp.mp4"))
+    system("rm temp.mp4")
+  end
+  
+  scope :signada,   lambda { where("video_webm_file_size IS NOT ?", nil)}
+  scope :pendiente, lambda { where("video_webm_file_size IS ?", nil)}
 
   # --- Permissions --- #
 
