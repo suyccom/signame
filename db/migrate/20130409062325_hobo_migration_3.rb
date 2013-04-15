@@ -1,4 +1,4 @@
-class HoboMigration2 < ActiveRecord::Migration
+class HoboMigration3 < ActiveRecord::Migration
   def self.up
     rename_column :paginas, :video_file_name, :video_webm_file_name
     rename_column :paginas, :video_content_type, :video_webm_content_type
