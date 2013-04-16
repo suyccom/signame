@@ -19,6 +19,12 @@ class PaginasController < ApplicationController
     end
   end
 
+  def create
+    hobo_create do
+      Solicitud.create(:email_solicitante => params[:email_solicitante], :pagina_id => @this.id)
+    end
+  end
+
   def index
     # Mostrar solo si el usuario ha hecho login.
     if current_user.signed_up?
@@ -31,7 +37,7 @@ class PaginasController < ApplicationController
         params[:sort] = 'created_at'
       end
       hobo_index Pagina.apply_scopes(
-        :order_by => parse_sort_param(:url, :email_solicitante, :created_at)
+        :order_by => parse_sort_param(:url, :created_at)
       )
     else
       redirect_to user_login_path
@@ -40,7 +46,8 @@ class PaginasController < ApplicationController
 
   def update
     hobo_update do
-      unless @pagina.video_file_size.nil?
+      if @pagina.signada?
+        @pagina.convertir_webm_a_mp4
         PaginaMailer.terminado(@pagina).deliver
       end
     end

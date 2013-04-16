@@ -1,6 +1,6 @@
 <show-page>
   <content-header:>
-    <unless test="&@pagina.video_file_name">
+    <unless test="&@pagina.signada?">
       <a class="pull-right btn btn-success btn-large" href="#"
       onclick="$('input[type=file]').trigger('click');return false;">
         <i class="icon-upload"></i> Intérprete: sube tu vídeo
@@ -8,7 +8,7 @@
       <attached-video-form/>
     </unless>
     <h2>
-      <if test="&@pagina.video_file_name">
+      <if test="&@pagina.signada?">
         Sígname: Este es el vídeo      
       </if>
       <else>
@@ -20,7 +20,7 @@
 
   <content-body:>
   <div id="paginas" part="paginas">
-    <if test="&@pagina.video_file_name">
+    <if test="&@pagina.signada?">
       <video-player/>
     </if>
     <else>
@@ -32,10 +32,19 @@
 
 <def tag="video-player">
   <div class="hero-unit" style="text-align:center;">
-    <video width="640" height="480" controls>
-      <source src="#{this.video.url(:original)}" type="video/webm"/>
-      Your browser does not support the video tag.
-    </video> 
+    <video width="640" height="480" controls="controls" poster="#{this.video_mp4.url(:small)}" preload="none">
+      <!-- MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7 -->
+      <source type="video/mp4" src="#{this.video_mp4.url(:original)}" />
+      <!-- WebM/VP8 for Firefox4, Opera, and Chrome -->
+      <source type="video/webm" src="#{this.video_webm.url(:original)}" />
+      <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
+      <object width="320" height="240" type="application/x-shockwave-flash" data="flashmediaelement.swf">
+        <param name="movie" value="flashmediaelement.swf" />
+        <param name="flashvars" value="controls=true&file=#{this.video_mp4.url(:original)}" />
+        <!-- Image as a last resort -->
+        <img src="myvideo.jpg" width="320" height="240" title="No video playback capabilities" />
+      </object>
+    </video>
     <br/><br/>
     Este vídeo es la versión en lengua de signos de: <a href="&this.url"><this.url/></a>.
   </div>
@@ -44,21 +53,35 @@
 <def tag="no-video">
   <div class="form-horizontal">
     <div class="hero-unit" style="text-align:center;">
-    <div class="progress progress-striped active hide" id="upload-progress">
-      <div class="bar" style="width:0%"></div>
-    </div>
-      Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/><br/>
-      Te avisaremos por email en cuanto esté signada.
+      <div class="progress progress-striped active hide" id="upload-progress">
+        <div class="bar" style="width:0%"></div>
+      </div>
+      <if test="&flash[:notice]">
+        <%= flash[:notice] %>
+      </if>
+      <else>
+        Esta es la página que vamos a signar: <a href="&this.url"><this.url/></a>. <br/><br/>
+        Escribe tu email y te avisaremos cuando este signada.<br/><br/>
+        <form  action="/solicituds/">
+          <div>
+            <input type="text" id="email_solicitante" name="email_solicitante" class="span2"/>
+            <input type="hidden" id="pagina_id" name="pagina_id" value="#{@pagina.id}" style="margin-left:5px;"/><submit label="Notificar" class="btn"/>
+          </div>
+        </form>
+      </else>
     </div>
   </div>
 </def>
+
+
+
 
 <def tag="attached-video-form">
   <form action="" class="pull-left" id="fileupload">
     <span class="btn btn-mini fileinput-button" 
       style="display:block;">
       <input type="file" id="fileupload-input" 
-        name="pagina[video]" multiple="false"
+        name="pagina[video_webm]" multiple="false"
         data-url="&pagina_path(@pagina)"/>
     </span>
   </form>

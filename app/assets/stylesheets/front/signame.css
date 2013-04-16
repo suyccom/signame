@@ -10,7 +10,7 @@
 .form-horizontal .form-actions, .form-horizontal .actions {
   padding-left: 220px;
 }
-input#pagina_url, input#pagina_email_solicitante {
+input#pagina_url, input#email_solicitante {
   font-size: 1em;
   padding: 0.3em;
 }
@@ -22,4 +22,10 @@ input#pagina_url, input#pagina_email_solicitante {
 }
 .hero-unit {
   background-color: whitesmoke;
+}
+
+
+/* Centrar el vídeo mediaelementjs */
+#mep_0{
+  margin-left:20%;
 }

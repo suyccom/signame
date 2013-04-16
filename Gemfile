@@ -58,7 +58,7 @@ gem 'hobo_paperclip', :git => "git://github.com/Hobo/hobo_paperclip.git", :branc
 
 
 gem 'bootswatch-rails'
-
+gem "mediaelement_rails"
 
 
 # Testing gems

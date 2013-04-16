@@ -1,7 +1,7 @@
 <edit-page>
   <heading:> Sube tu video </heading:>
   <form: without-cancel>
-    <field-list: skip="email_solicitante">
+    <field-list:>
       <url-label:>Dirección de la página</url-label:>
       <url-view:><view/></url-view:>
     </field-list:>
