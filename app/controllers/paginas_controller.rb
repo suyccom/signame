@@ -27,7 +27,7 @@ class PaginasController < ApplicationController
 
   def index
     # Mostrar solo si el usuario ha hecho login.
-    if current_user.signed_up?
+    if current_user.signed_up? || params[:paginas_signadas] == true
       paginas = Pagina.pendiente
       paginas = Pagina.signada if params[:paginas_signadas] == true
       @title = "Cola de trabajos"
@@ -36,7 +36,7 @@ class PaginasController < ApplicationController
       if (!params[:sort])
         params[:sort] = 'created_at'
       end
-      hobo_index Pagina.apply_scopes(
+      hobo_index paginas.apply_scopes(
         :order_by => parse_sort_param(:url, :created_at)
       )
     else
