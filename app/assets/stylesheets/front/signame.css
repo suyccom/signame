@@ -15,7 +15,6 @@ input#pagina_url, input#email_solicitante {
   padding: 0.3em;
 }
 
-
 /* Pruebas con tema United de Bootswatch */
 .alert, .alert h4 {
     color: white;
@@ -24,8 +23,21 @@ input#pagina_url, input#email_solicitante {
   background-color: whitesmoke;
 }
 
-
 /* Centrar el vídeo mediaelementjs */
 #mep_0{
   margin-left:20%;
+}
+
+/* Portada */
+img.marco {
+  border: 3px solid #F08080;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+p.justificado {
+  text-align: justify;
+}
+h1.bienvenido {
+  margin-bottom: 0.5em;
 }

@@ -35,6 +35,12 @@ es:
     actions:
       new: Nuevo trabajo
   pagina:
+    portada:
+      bienvenido: '¡Hola!, esto es Sígname'
+      direccion: 'Dirección de la página'
+      que_es: 'En Sígname puedes solicitar que un Intérprete de Lengua de Signos (ILS), signe para ti y el resto de personas que lo necesiten, una página de Internet. <br />Por ejemplo, si necesitas acceder a la información de la web de la biblioteca municipal, puedes solicitar que ese contenido sea adaptado a la lengua de signos.'
+      correo: 'Correo electrónico'
+      solicitar: 'Solicitar'
     messages:
       create:
         success: "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
