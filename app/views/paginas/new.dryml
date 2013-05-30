@@ -26,5 +26,3 @@
     <submit: label="#{I18n.t('pagina.portada.solicitar')}" class="btn-large"/>
   </form:>
 </new-page>
-
-
