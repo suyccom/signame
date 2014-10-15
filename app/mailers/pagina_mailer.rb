@@ -36,7 +36,7 @@ class PaginaMailer < ActionMailer::Base
     end    
     destinatario = Rails.env.production? ? emails : DEVEL_EMAIL
     mail(
-      :to => 'no-reply@no-reply.com',
+      :to => destinatario,
       :subject => "[signame] Página web adaptada",
       :bcc => destinatario #Solo se envia si no se repite en :to
     )
