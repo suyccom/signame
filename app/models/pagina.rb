@@ -26,7 +26,8 @@ class Pagina < ActiveRecord::Base
       :default_style => :small,
       :path => "#{Rails.root}/public/videos/:style/:id.:extension",
       :url => "/videos/:style/:id.:extension"
-
+  validates_attachment_content_type :video_webm, :content_type => ["video/webm"]
+  validates_attachment_content_type :video_mp4, :content_type => ["video/mp4"]
 
   def signada?
     self.video_webm_file_size.nil? ? false : true
