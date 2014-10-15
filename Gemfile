@@ -53,7 +53,7 @@ gem "hobo_bootstrap", "2.0.0"
 gem "hobo_jquery_ui", "2.0.0"
 gem "hobo_bootstrap_ui", "2.0.0"
 gem "jquery-ui-themes", "~> 0.0.4"
-gem "paperclip"
+gem "paperclip", "3.5.2"
 gem 'hobo_paperclip', :git => "git://github.com/Hobo/hobo_paperclip.git", :branch => "master"
 
 
