@@ -17,6 +17,7 @@ app/views/taglibs/auto/**/*
 config/hobo_routes.rb
 
 .rbenv-version
+.ruby-version
 *.rbc
 *.sassc
 .sass-cache
