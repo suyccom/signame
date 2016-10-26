@@ -28,4 +28,6 @@ class FrontController < ApplicationController
   
   def integracion; end
 
+  def caracteristicas_y_servicios; end
+
 end

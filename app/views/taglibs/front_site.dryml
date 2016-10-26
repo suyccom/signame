@@ -1,23 +1,15 @@
 <!-- Global taglib - these are the tags for your front / main site -->
 
 <include gem="hobo_rapid"/>
-
 <include gem='hobo_jquery'/>
-
 <include gem='hobo_bootstrap'/>
-
 <include gem='hobo_jquery_ui'/>
-
 <include gem='hobo_bootstrap_ui'/>
-
 <include src="taglibs/auto/rapid/cards"/>
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
-
 <include src="application"/>
-
 <include gem='hobo_paperclip'/>
-
 
 <def tag="app-name">Sígname</def>
 
@@ -29,8 +21,8 @@
 
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
-    <nav-item href="#{base_url}/">Inicio</nav-item>
-    <nav-item href="/paginas_signadas">Páginas signadas</nav-item>
+    <nav-item href="/caracteristicas_y_servicios">Características y servicios</nav-item>
+    <nav-item href="/conoce_nuestro_trabajo">Conoce nuestro trabajo</nav-item>
     <nav-item href="/integracion">Intégralo en tu web</nav-item>
     <if test='&current_user.signed_up?'>
       <nav-item href="/cola_trabajos">Cola de trabajos</nav-item>
@@ -42,7 +34,14 @@
   </navigation>
 </def>
 
-
 <extend tag="page">
   <old-page merge without-account-nav/>
 </extend>
+
+<extend tag='login-form'>
+  <old-login-form merge>
+    <forgot-password: replace/>
+    <signup: replace><a href='/' title='Volver al Inicio'>Cancelar</a></signup>
+  </old-login-form>
+</extend>
+

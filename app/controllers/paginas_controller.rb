@@ -27,11 +27,9 @@ class PaginasController < ApplicationController
 
   def index
     # Mostrar solo si el usuario ha hecho login.
-    if current_user.signed_up? || params[:paginas_signadas] == true
-      paginas = Pagina.pendiente
-      paginas = Pagina.signada if params[:paginas_signadas] == true
-      @title = "Cola de trabajos"
-      @title = "Páginas signadas" if params[:paginas_signadas] == true
+    if current_user.signed_up? || params[:conoce_nuestro_trabajo] == true
+      paginas = params[:conoce_nuestro_trabajo].blank? ? Pagina.pendiente : Pagina.signada
+      @title = params[:conoce_nuestro_trabajo].blank? ? "Cola de trabajos" : "Conoce nuestro trabajo"
       # Por defecto ordenamos por orden cronológico de creación.
       if (!params[:sort])
         params[:sort] = 'created_at'

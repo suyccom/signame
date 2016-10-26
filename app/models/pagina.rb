@@ -6,26 +6,28 @@ class Pagina < ActiveRecord::Base
     url               :string, :required, :unique
     timestamps
   end
+  attr_accessible :url
+
   has_many :solicituds, :accessible => true
 
   has_attached_file :video_webm, 
-      :styles => { 
-        :small => ["200x250", :jpg ], 
-        :thumbnail => ["100x100#", :jpg ] 
-      }, 
-      :whiny => false,
-      :default_style => :small,
-      :path => "#{Rails.root}/public/videos/:style/:id.:extension",
-      :url => "/videos/:style/:id.:extension"
+    :styles => { 
+      :small => ["200x250", :jpg ], 
+      :thumbnail => ["100x100#", :jpg ] 
+    }, 
+    :whiny => false,
+    :default_style => :small,
+    :path => "#{Rails.root}/public/videos/:style/:id.:extension",
+    :url => "/videos/:style/:id.:extension"
   has_attached_file :video_mp4, 
-      :styles => { 
-        :small => ["640x480", :jpg ], 
-        :thumbnail => ["100x100#", :jpg ] 
-      }, 
-      :whiny => false,
-      :default_style => :small,
-      :path => "#{Rails.root}/public/videos/:style/:id.:extension",
-      :url => "/videos/:style/:id.:extension"
+    :styles => { 
+      :small => ["640x480", :jpg ], 
+      :thumbnail => ["100x100#", :jpg ] 
+    }, 
+    :whiny => false,
+    :default_style => :small,
+    :path => "#{Rails.root}/public/videos/:style/:id.:extension",
+    :url => "/videos/:style/:id.:extension"
 
   def signada?
     self.video_webm_file_size.nil? ? false : true
@@ -50,7 +52,6 @@ class Pagina < ActiveRecord::Base
   scope :pendiente, lambda { where("video_webm_file_size IS ?", nil)}
 
   # --- Permissions --- #
-
   def create_permitted?
     true
   end
