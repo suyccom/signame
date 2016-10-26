@@ -1,3 +1,7 @@
+/* Barra de menu superior*/
+.app-name a.brand{font-size:28px}
+.navigation.main-nav.nav a{font-size:18px}
+
 .hero-unit .form-horizontal .control-label {
   width: 200px;
 }

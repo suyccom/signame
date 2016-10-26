@@ -12,7 +12,7 @@
     </div>
   </content-header:>
   <form: without-cancel>
-    <field-list: skip="video_webm, video_mp4">
+    <field-list: fields='url'>
       <url-label:><t key='pagina.portada.direccion'/></url-label:>
     </field-list:>
     <after-field-list:>

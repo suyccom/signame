@@ -12,8 +12,8 @@ class Solicitud < ActiveRecord::Base
   def notificar_solicitud
     PaginaMailer.notificar_solicitud(self.pagina).deliver
   end
-  # --- Permissions --- #
 
+  # --- Permissions --- #
   def create_permitted?
     true
   end

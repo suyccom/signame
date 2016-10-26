@@ -28,9 +28,6 @@ es:
         email_solicitante: Solicitante
         url: Página
         created_at: Solicitado el
-#    attribute_help:
-#      user:
-#        email_address:
   Pagina:
     actions:
       new: Nuevo trabajo
@@ -38,12 +35,12 @@ es:
     portada:
       bienvenido: '¡Hola!, esto es Sígname'
       direccion: 'Dirección de la página'
-      que_es: 'En Sígname puedes solicitar que un Intérprete de Lengua de Signos (ILS), signe para ti y el resto de personas que lo necesiten, una página de Internet. <br />Por ejemplo, si necesitas acceder a la información de la web de la biblioteca municipal, puedes solicitar que ese contenido sea adaptado a la lengua de signos.'
+      que_es: 'Sígname es una herramienta que te permite solicitar que un/a Intérprete de Lengua de Signos (ILS), adapte el contenido escrito de una sección de una web que te interese a la lengua de signos.<br/><br/>Es un servicio que funciona bajo demanda de la persona interesada y se podrá disponer de los vídeos en un tiempo de espera de 24 a 48 horas.<br/><br/>Si conoces la dirección exacta de la web que quieres que signemos sólo tienes que escribirla donde dice "dirección de la página", si no la conoces, accede a la web que quieres y pincha en el icono.<br/><br/>'
       correo: 'Correo electrónico'
       solicitar: 'Solicitar'
     messages:
       create:
-        success: "Muchas gracias por su solicitud, te avisamos por email en cuanto esté disponible"
+        success: "Muchas gracias por su solicitud, te avisamos por correo electrónico en cuanto esté disponible"
     index:
       heading: Cola de trabajos
       title: Cola de trabajos
